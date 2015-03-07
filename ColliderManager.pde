@@ -24,4 +24,16 @@ class ColliderManager {
     item.add(c);
     return c;
   }
+  
+  void detectCollisions() {
+    for (int i = 0; i < item.size(); i++) {
+      ArrayList<Collider> collisionList = new ArrayList<Collider>();
+      for(int j = 0; j < item.size(); j++) {
+        if(item.get(i).didCollide(item.get(j))) {
+          collisionList.add(item.get(j));
+        }
+      }
+      item.get(i).collisionList = collisionList;
+    }
+  }
 }
